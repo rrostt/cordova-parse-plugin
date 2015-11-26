@@ -58,7 +58,10 @@ public class ParsePluginBroadcastReciever extends ParsePushBroadcastReceiver {
 
             // Resume current Activity
             pushData.putBoolean("coldstart", false);
-            ParsePlugin.getActivity().startActivity(ParsePlugin.getActivity().getIntent());
+            PackageManager pm = context.getPackageManager();
+            Intent launchIntent = pm.getLaunchIntentForPackage(context.getPackageName());
+            launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(launchIntent);
         } else {
             Log.i(LOGTAG, "App is not Active");
             Log.i(LOGTAG, "Starting Main activity");
@@ -67,6 +70,7 @@ public class ParsePluginBroadcastReciever extends ParsePushBroadcastReceiver {
             pushData.putBoolean("coldstart", true);
             PackageManager pm = context.getPackageManager();
             Intent launchIntent = pm.getLaunchIntentForPackage(context.getPackageName());
+            launchIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(launchIntent);
         }
 
