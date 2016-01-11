@@ -66,6 +66,7 @@
 		<source-file src="src/android/ParsePlugin.java" target-dir="src/se/frostyelk/cordova/parse/plugin/"/>
 		<source-file src="src/android/ParsePluginBroadcastReciever.java" target-dir="src/se/frostyelk/cordova/parse/plugin/"/>
 		<source-file src="src/android/ParseWakeUpReceiver.java" target-dir="src/se/frostyelk/cordova/parse/plugin/"/>
+		<source-file src="src/android/ParsePluginMainApplication.java" target-dir="src/se/frostyelk/cordova/parse/plugin/"/>
 	</platform>
 	<platform name="ios">
 		<config-file target="config.xml" parent="/*">
